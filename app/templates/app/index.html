@@ -1,3 +1,4 @@
+{%  load static %}
 <!DOCTYPE html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -19,6 +20,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+
+
+
+    <!--位置情報-->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     <link rel="stylesheet"  href="{% static 'css/L.Control.Locate.min.css' %}"/>
+    <script type="text/javascript" src="{% static 'js/L.Control.Locate.min.js' %}"></script>
 
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -62,6 +70,23 @@
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             ).addTo(map_a199c7e0103d4d9c90287d683f0663a9);
+
+
+             // Locate
+        var option = {
+        position: 'topright',
+        strings: {
+            title: "現在地を表示",
+            popup: "現在地",
+        },
+        icon: "fa fa-street-view",
+        locateOptions: {
+            maxZoom: 16
+        }
+        }
+
+        var lc = L.control.locate(option).addTo(map_a199c7e0103d4d9c90287d683f0663a9);
+        lc.start();
 
 
             var marker_cluster_a7ab641fe8c1401da2f3014778daed3a = L.markerClusterGroup(
