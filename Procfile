@@ -1,0 +1,1 @@
+web: gunicorn jikkenn1.wsgi
