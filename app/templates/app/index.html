@@ -30,13 +30,14 @@
       //コントロール内にプロパティ名が表示される
       L.control.layers(baseMaps).addTo(map);
       gsi.addTo(map);
-    } //ポップアップする文字（HTML可、ここでは画像を表示）
-      var sucontents = "埼玉大学です<br><"
+
+    //ポップアップする文字（HTML可、ここでは画像を表示）
+      var sucontents = "埼玉大学です"
       //ポップアップオブジェクトを作成
-      var popup1 = L.popup({ maxWidth: 550 }).setContent(sucontents);
+
       var popup2 = L.popup().setContent("桜区役所です");
       //マーカーにポップアップを紐付けする。同時にbindTooltipでツールチップも追加
-      L.marker(mpoint, { draggable: true }).bindPopup(popup1).bindTooltip("埼玉大学").addTo(map);
+
       L.marker([35.8561, 139.6098]).bindPopup(popup2).bindTooltip("桜区役所").addTo(map);
     }
   </script>
